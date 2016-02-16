@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Instructor Portal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Grading Application <small>Instructor Portal</small></h1>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="pageOne" class="body">
+		<form action="/Index.html" method="get">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<h2>
+								<label for="programText">
+									Your Program
+								</label>
+							</h2>
+							<textarea style="max-width:100%" rows="10" class="input form-control" id="programText"></textarea>
+						</div>
+						<hr />
+						<div class="text-center">
+							<strong class="h2">OR</strong>
+						</div>
+						<hr />
+						<div class="form-group">
+							<label for="programFileInput" class="control-label">File input</label>
+							<input type="file" class="form-control" id="programFileInput" />
+							<p class="help-block">Use this if you don't want to type your program above</p>
+						</div>
+						<div class="form-group">
+							<label for="programInput" class="control-label">Program Input</label>
+							<textarea rows="5" class="input form-control" id="programInput"></textarea>
+						</div>
+						<div class="form-group">
+							<input type="submit" id="submitFiles" title="This will submit the files for compilation and return output to the results area." class="btn btn-primary btn-lg" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<h2 class="text-left">
+								<label for="results">
+									Results
+								</label>
+							</h2>
+							<textarea style="max-width:100%" readonly rows="10" class="input form-control" id="results"></textarea>
+							<br />
+							<h2>Output Format</h2>
+							<textarea style="max-width:100%;" rows="10" class="form-control" id="outputFormat"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<button type="button" class="btn btn-info pull-right" id="nextBtn">Next</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="body" id="pageTwo" style="display: none;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Classes</h2>
+					<div class="form-group">
+						<select title="Hold the control key to select multiple classes." onclick="$('.tooltip').hide();" multiple class="form-control" size="10">
+							<optgroup label="CPS">
+								<option>CPS 180 (XXXXXXX)</option>
+								<option>CPS 181 (XXXXXXX)</option>
+								<option>CPS 240 (XXXXXXX)</option>
+								<option>CPS 340 (XXXXXXX)</option>
+								<option>CPS 470 (XXXXXXX)</option>
+							</optgroup>
+							<optgroup label="ITC">
+								<option>ITC 341 (XXXXXXX)</option>
+								<option>ITC 510 (XXXXXXX)</option>
+							</optgroup>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<h2>Availability Period</h2>
+					<div class="form-group">
+						<h3>From</h3>
+						<input type="datetime-local" class="form-control" required />
+						<br />
+						<h3>To</h3>
+						<input type="datetime-local" class="form-control" required />
+					</div>
+				</div>
+			</div>
+				<div class="row">
+					<div class="col-md-12">
+						<button class="btn btn-info pull-right" id="prevBtn">Previous</button>
+					</div>
+				</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('*').tooltip();
+			$('#nextBtn').click(function () {
+				$('#pageOne').hide();
+				$('#pageTwo').show();
+			});
+			$('#prevBtn').click(function () {
+				$('#pageOne').show();
+				$('#pageTwo').hide();
+			});
+		});
+	</script>
+</body>
+
+</html>
